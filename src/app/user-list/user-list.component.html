@@ -1,0 +1,51 @@
+<h2 class="text-center">Employee List</h2>
+
+<div class="col-md-5">
+<div class="imput-group mb-4">
+<input type="text" class="form-control" placeholder="Enter Keyowrd To Search....." [(ngModel)]="name"/>
+<div class="input-group-append">
+<button class="btn btn-primary" type="button" (click)="searchByName()" style="margin-left: 102%;margin-top: -8.80%;">Search</button>
+</div>
+</div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Surname</th>
+            <th>Pincode</th>
+            <th>DOJ</th>
+            <th>DOB</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Phone No</th>
+            <th>Deleted</th>
+            <th colspan="3">Action</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let user of users">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.surname}}</td>
+            <td>{{user.pincode}}</td>
+            <td>{{user.doj}}</td>
+            <td>{{user.dob}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.phoneno}}</td>
+            <td>{{user.deleted}}</td>
+            
+            <td>
+                <button (click)="updateUser(user.id)" class="btn btn-info">Update</button>
+               <button (click)="deleteUser(user.id)" class="btn btn-danger">Hard Delete</button>
+                <button (click)="softDeleteUser(user.id)" class="btn btn-warning">Soft Delete</button>
+                <button (click)="viewUser(user.id)" class="btn btn-primary" >View</button>
+            </td>
+        
+        </tr>
+    </tbody>
+</table>
